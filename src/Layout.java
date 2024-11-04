@@ -11,6 +11,9 @@ public class Layout implements ActionListener {
     private JTextArea results;
     private JTextField search;
     private JButton goButton;
+    private JComboBox stats;
+
+
 
     public static void main(String[] args) {
         Layout a = new Layout();
@@ -21,9 +24,17 @@ public class Layout implements ActionListener {
 
         panel = new JPanel(new BorderLayout());
 
-        results = new JTextArea("Type here...");
+        gridPanel = new JPanel(new GridLayout (3, 1));
 
-        search = new JTextField("Team or Player");
+        results = new JTextArea("RESULTS");
+
+        results.setEditable(false);
+
+        search = new JTextField("Team or Player...");
+
+        String s1[] = {"points per game", "assists per game", "rebounds per game"};
+
+        stats = new JComboBox(s1);
 
         goButton = new JButton("GO");
 
@@ -33,11 +44,9 @@ public class Layout implements ActionListener {
 
         panel.add(gridPanel, BorderLayout.NORTH);
 
-        gridPanel = new JPanel(new GridLayout (3, 1));
-
         gridPanel.add(search);
 
-//            gridPanel.add(stats)
+            gridPanel.add(stats);
 
         gridPanel.add(goButton);
 
@@ -47,9 +56,9 @@ public class Layout implements ActionListener {
         // frame stuff at the bottom of constructor
 
 
-        frame.pack();
+//        frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setSize(300,300);
+        frame.setSize(600,600);
         frame.setVisible(true);
     }
 
