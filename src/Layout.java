@@ -3,53 +3,66 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Layout {
+
+public class Layout implements ActionListener {
+
+    private JFrame frame;
+    private JPanel panel, gridPanel, borderPanel;
+    private JTextArea results;
+    private JTextField search;
+    private JButton goButton;
+
+    public static void main(String[] args) {
+        Layout a = new Layout();
+    }
+
+    public Layout() {
+        frame = new JFrame("border!");
+
+        panel = new JPanel(new BorderLayout());
+
+        results = new JTextArea("Type here...");
+
+        search = new JTextField("Team or Player");
+
+        goButton = new JButton("GO");
+
+        goButton.addActionListener(this);
+
+        panel.add(results, BorderLayout.CENTER);
+
+        panel.add(gridPanel, BorderLayout.NORTH);
+
+        gridPanel = new JPanel(new GridLayout (3, 1));
+
+        gridPanel.add(search);
+
+//            gridPanel.add(stats)
+
+        gridPanel.add(goButton);
 
 
-    public class Layouts implements ActionListener {
+        frame.add(panel);
 
-        private JFrame frame;
-        private JPanel panel;
-        private JTextArea ta;
-        private JButton stopButton;
-        private JButton goButton;
+        // frame stuff at the bottom of constructor
 
-        public static void main(String[] args) {
-            Layouts a = new Layouts();
-        }
 
-        public Layout() {
-            frame = new JFrame("border!");
-            panel = new JPanel(new BorderLayout());
-            ta = new JTextArea("Type here...");
-            goButton = new JButton("GO");
-            goButton.addActionListener(this);
-            stopButton = new JButton("STOP");
-            stopButton.addActionListener(this);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(300,300);
+        frame.setVisible(true);
+    }
 
-            panel.add(ta, BorderLayout.CENTER);
-            panel.add(goButton, BorderLayout.EAST);
-            panel.add(stopButton, BorderLayout.SOUTH);
-
-            frame.add(panel);
-
-            // frame stuff at the bottom of constructor
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300,300);
-            frame.setVisible(true);
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (e.getActionCommand() == "GO") {
-                System.out.println("GO button clicked");
-                ta.setText("GO");
-            }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+//        if (e.getActionCommand() == "GO") {
+//            System.out.println("GO button clicked");
+//            results.setText("GO");
+//        }
 //        else if () {
 //
 //        }
-        }
     }
-
 }
+
 
