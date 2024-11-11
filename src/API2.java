@@ -18,7 +18,7 @@ public class API2 {
     }
 
     public API2() throws IOException, ParseException {
-        URL url = new URL("https://api.sportradar.com/nba/trial/v8/en/players/8ec91366-faea-4196-bbfd-b8fab7434795/profile.json?api_key=JZ0tJ7HOgsC9Q9tjKI3MPavkfj8tN4mg7AZho64k");
+        URL url = new URL("https://api.sportradar.com/nba/trial/v8/en/players/8ec91366-faea-4196-bbfd-b8fab7434795/profile.json?api_key=ao7A9LW1o6c7uV7hvb675Km1lWQUXIofi9clqylx");
         HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
         httpConn.setRequestMethod("GET");
 
@@ -31,25 +31,18 @@ public class API2 {
         String response = s.hasNext() ? s.next() : "";
         System.out.println("Response" + response);
 
-        /*
+
         JSONParser parser = new JSONParser();
-        JSONArray jsonArray = (JSONArray) parser.parse(response);
-        System.out.println("JSON ARRAY: " + jsonArray);
+        JSONObject jsonObject = (JSONObject) parser.parse(response);
+        System.out.println("JSON: " + jsonObject);
 
-//        JSONObject character = (JSONObject) jsonArray.get(0);// 0 index is the first character
-        JSONArray pointspergame = (JSONArray) character.get("points per game");
-        System.out.println("points per game of " + character.get("full_name") + ":");
-//        for (Object ally : allies) {
-//            System.out.println(ally);
-//        }
+        JSONObject teamInfo = (JSONObject) jsonObject.get("team");
+        System.out.println(teamInfo.get("name"));
 
-        System.out.println("\nNames of all characters:");
-        for (Object obj : jsonArray) {
-            JSONObject charObj = (JSONObject) obj;
-            System.out.println(charObj.get("full_name"));
+
         }
-        */
+
     }
-}
+
 
 
