@@ -62,7 +62,7 @@ public class Layout implements ActionListener {
         frame.setVisible(true);
     }
 
-    @Override
+    @Override 
     public void actionPerformed(ActionEvent e) {
 //        if (e.getActionCommand() == "GO") {
 //            System.out.println("GO button clicked");
